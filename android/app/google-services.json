@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "895530726353",
+    "project_id": "drincup-e20a2",
+    "storage_bucket": "drincup-e20a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895530726353:android:2a1791588e5b660326e6f0",
+        "android_client_info": {
+          "package_name": "com.example.drincup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895530726353-70hhli6qkgdv21s62qti9v9dsci4ph28.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_yrCJKnTXorWiWvMlZnmhj0UB8_yvoXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895530726353-70hhli6qkgdv21s62qti9v9dsci4ph28.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
