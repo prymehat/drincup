@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:drincup/widgets/text_input_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -55,9 +57,20 @@ class _SignupState extends State<Signup> {
             ),
             Stack(
               children: [
-                CircleAvatar( )
+                CircleAvatar(
+                  radius: 64,
+                  backgroundImage:  NetworkImage(
+                    "https://media.istockphoto.com/id/1402857938/photo/shes-trying-her-best-to-calm-down-and-relax.webp?s=2048x2048&w=is&k=20&c=1QU66zUpeXNYLahlgtBlbPHKEzoFfZJsfKixbA1MyIE="
+                  )
+                ),
+                Positioned(
+                  child: IconButton(
+                    
+                  ))
+                              
               ],
             ),
+            SizedBox(height: 15,),
             TextFieldInput(
                 hintText: 'Enter your full name',
                 textEditingController: _nameController,

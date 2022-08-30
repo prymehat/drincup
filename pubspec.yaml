@@ -49,6 +49,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/avatar.jpg
     - assets/splash_hero.png
     - assets/back_button.png
     - assets/DrinCup.png
