@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:drincup/resources/auth_methods.dart';
+import 'package:drincup/screens/login_page.dart';
 import 'package:drincup/widgets/text_input_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -36,121 +38,129 @@ class _SignupState extends State<Signup> {
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 32),
           color: bgcolor,
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            Flexible(child: Container(), flex: 1),
-            SizedBox(
-              height: 35,
-            ),
-            Center(
-              child: Text(
-                'DrinCup',
-                style: TextStyle(
-                    fontFamily: 'MuseoModerno',
-                    fontWeight: FontWeight.bold,
-                    color: maincolor,
-                    fontSize: 64),
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Stack(
+          child: ListView(shrinkWrap: true,
+              // crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CircleAvatar(
-                  radius: 64,
-                  backgroundImage:  NetworkImage(
-                    "https://media.istockphoto.com/id/1402857938/photo/shes-trying-her-best-to-calm-down-and-relax.webp?s=2048x2048&w=is&k=20&c=1QU66zUpeXNYLahlgtBlbPHKEzoFfZJsfKixbA1MyIE="
-                  )
+                // Flexible(child: Container(), flex: 1),
+                SizedBox(
+                  height: 35,
                 ),
-                Positioned(
-                  child: IconButton(
-                    
-                  ))
-                              
-              ],
-            ),
-            SizedBox(height: 15,),
-            TextFieldInput(
-                hintText: 'Enter your full name',
-                textEditingController: _nameController,
-                textInputType: TextInputType.text),
-            SizedBox(
-              height: 10,
-            ),         
-            TextFieldInput(
-                hintText: 'Enter your email address',
-                textEditingController: _emailController,
-                textInputType: TextInputType.emailAddress),
-            SizedBox(
-              height: 10,
-            ),
-            TextFieldInput(
-              hintText: 'Enter your Password',
-              textEditingController: _passwordController,
-              textInputType: TextInputType.text,
-              isPass: true,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            InkWell(
-              child: Container(
-                child: Text(
-                  'Sign up',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: "Montserrat",
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                width: double.infinity,
-                alignment: Alignment.center,
-                padding: EdgeInsets.symmetric(vertical: 12),
-                decoration: ShapeDecoration(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(4)),
-                  ),
-                  color: btcolor1,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Flexible(child: Container(), flex: 1),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
+                Center(
                   child: Text(
-                    "Already Have an Acccount?",
+                    'DrinCup',
                     style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: "Montserrat",
-                      fontSize: 14,
-                    ),
+                        fontFamily: 'MuseoModerno',
+                        fontWeight: FontWeight.bold,
+                        color: maincolor,
+                        fontSize: 24),
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 8),
                 ),
-                GestureDetector(
-                  onTap: () {},
+                SizedBox(
+                  height: 15,
+                ),
+                Center(
+                  child: Image(
+                    image: AssetImage('assets/signup_hero.png'),
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ), 
+                SizedBox(
+                  height: 15,
+                ),
+                TextFieldInput(
+                    hintText: 'Enter your full name',
+                    textEditingController: _nameController,
+                    textInputType: TextInputType.text),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFieldInput(
+                    hintText: 'Enter your email address',
+                    textEditingController: _emailController,
+                    textInputType: TextInputType.emailAddress),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFieldInput(
+                  hintText: 'Enter your Password',
+                  textEditingController: _passwordController,
+                  textInputType: TextInputType.text,
+                  isPass: true,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                InkWell(
+                  onTap: () async {
+                    String res = await AuthMethods().signUpUser(
+                        email: _emailController.text,
+                        password: _passwordController.text,
+                        name: _nameController.text);
+                    print(res);
+                  },
                   child: Container(
                     child: Text(
-                      "Login.",
+                      'Sign up',
                       style: TextStyle(
-                          color: Colors.red,
-                          fontFamily: "Montserrat",
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold),
+                        color: Colors.white,
+                        fontFamily: "Montserrat",
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    padding: EdgeInsets.symmetric(vertical: 8),
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(vertical: 12),
+                    decoration: ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(4)),
+                      ),
+                      color: btcolor1,
+                    ),
                   ),
                 ),
-              ],
-            )
-          ]),
+                SizedBox(
+                  height: 10,
+                ),
+                // Flexible(child: Container(), flex: 1),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      child: Text(
+                        "Already Have an Acccount?",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: "Montserrat",
+                          fontSize: 14,
+                        ),
+                      ),
+                      padding: EdgeInsets.symmetric(vertical: 8),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Login()));
+                      },
+                      child: Container(
+                        child: Text(
+                          "Login.",
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontFamily: "Montserrat",
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        padding: EdgeInsets.symmetric(vertical: 8),
+                      ),
+                    ),
+                  ],
+                )
+              ]),
         ),
       ),
     );

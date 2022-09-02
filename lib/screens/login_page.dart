@@ -1,3 +1,4 @@
+import 'package:drincup/screens/signup_page.dart';
 import 'package:drincup/utils/colors.dart';
 import 'package:drincup/widgets/text_input_widget.dart';
 import 'package:flutter/material.dart';
@@ -31,20 +32,21 @@ class _LoginState extends State<Login> {
           width: double.infinity, 
           padding: const EdgeInsets.symmetric(horizontal: 32),
           color: bgcolor,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: ListView(
+
+              shrinkWrap: true,
+              // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Flexible(child: Container(), flex: 1),
               SizedBox(height: 35,),
               Center(
-                child: Text('DrinCup', style: TextStyle(fontFamily: 'MuseoModerno', fontWeight: FontWeight.bold, color: maincolor, fontSize: 64),),
+                child: Text('DrinCup', style: TextStyle(fontFamily: 'MuseoModerno', fontWeight: FontWeight.bold, color: maincolor, fontSize: 24),),
               ),
               SizedBox(height: 15,),
-              // Center(
-              //   child: Image(image: AssetImage('assets/login_hero.png'), height: 150, width: 150,)
-              //   ,
-              // ),
-              // SizedBox(height: 15,),
+              Center(
+                child: Image(image: AssetImage('assets/login_hero.png'),)
+                ,
+              ),
+              SizedBox(height: 15,),
               TextFieldInput(
                 
                 hintText: 'Enter your email address', 
@@ -83,7 +85,6 @@ class _LoginState extends State<Login> {
                 ),
               ),
               SizedBox(height: 10,),
-              Flexible(child: Container(), flex: 1),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -99,7 +100,12 @@ class _LoginState extends State<Login> {
                   padding: EdgeInsets.symmetric(vertical: 8),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Signup()),
+                    );
+                  },
                   child: Container(
                     child: Text(
                       "Sign up.", 
